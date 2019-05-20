@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block name %}
+    批量导入数据
+{% endblock %}
+
+{% block con %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-xs-9 col-md-offset-1">
+                {# 为了用户批量上传的文件数据按照我们视图代码中要求的那些字段格式，我们可以提供这样的模板excel#}
+                <a href="/static/stu_info.xls">下载模板</a>
+                <form action="/stark/crm/customer/import/" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="file" name="my_file">
+                    <input type="submit">
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

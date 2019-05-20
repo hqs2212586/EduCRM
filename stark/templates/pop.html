@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    // opener 属性是一个可读可写的属性，可返回对创建该窗口的 Window 对象的引用。
+    // 当使用window.open()打开一个窗口，您可以使用此属性返回来自目标窗口源（父）窗口的详细信息。
+    window.opener.pop_response('{{ res.pk }}','{{ res.text }}','{{ res.pop_res_id }}')
+    // close() 方法用于关闭浏览器窗口
+    window.close()
+</script>
+</body>
+</html>

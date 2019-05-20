@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block name %}
+    我的客户
+{% endblock %}
+
+{% block con %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-xs-9 col-md-offset-1">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>姓名</th>
+                        <th>民族</th>
+                        <th>联系电话</th>
+                        <th>招生顾问</th>
+                        <th>报名时间</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for customer in my_customer_list %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ customer.name }}</td>
+                            <td>{{ customer.nation }}</td>
+                            <td>{{ customer.tel }}</td>
+                            <td>{{ customer.consultant }}</td>
+                            <td>{{ customer.create_time|date:"Y-m-d H:m:s" }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

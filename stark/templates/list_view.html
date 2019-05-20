@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block name %}
+    数据列表
+{% endblock %}
+
+{% block con %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                {# <a href="add/" class="btn btn-primary">添加数据</a> #}
+                <a href="{{ add_url }}" class="btn btn-primary">添加数据</a>
+                <!-- 添加搜索框 -->
+                {% if show_list.config.search_fields %}
+                    <form action="" class="pull-right">
+                        <input type="text" name="q" value="{{ show_list.config.key_word }}">
+                        <button>搜索</button>
+                    </form>
+                {% endif %}
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <select name="action" id="" style="width: 200px; padding: 5px 8px; display: inline-block">
+                        <option value="">-----------</option>
+                        {% for item in show_list.get_action_list %}
+                            <option value="{{ item.name }}">{{ item.desc }}</option>
+                        {% endfor %}
+                    </select>
+                    <button type="submit" class="btn-info">Go</button>
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            {% for item in header_list %}
+                                <th>{{ item }}</th>
+                            {% endfor %}
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for data in new_data_list %}
+                            <tr>
+                                {% for item in data %}
+                                    <td>{{ item }}</td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+                    <nav>
+                        <ul class="pagination">
+                            {{ show_list.pagination.page_html|safe }}
+                        </ul>
+                    </nav>
+                </form>
+            </div>
+            <div class="col-md-3">
+                {% if showlist.config.list_filter %}
+                    {# list_filter有值才显示FILTER #}
+                    <div class="filter">
+                        <h4>Filter</h4>
+                        {% for filter_field, linktags in show_list.get_filter_linktags.items %}
+                            <div class="well">
+                                {# upper方法改为大写 #}
+                                <p>{{ filter_field.upper }}</p>
+                                {% for link in linktags %}
+                                    <p>{{ link|safe }}</p>
+                                {% endfor %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <script>
+        // 复选框全选
+        $("#choice").click(function () {
+            if ($(this).prop("checked")) {
+                // 如果是选中状态
+                $(".choice_item").prop("checked", true);
+            } else {
+                $(".choice_item").prop("checked", false)
+            }
+        })
+    </script>
+{% endblock %}

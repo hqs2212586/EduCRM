@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 以最高的ie浏览器 渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 视口的设备 移动设备优先 支持移动端 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>报考注册管理平台</title>
+    <!-- Bootstrap 3.3.6 -->
+    <link rel="stylesheet" href="/static/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/static/bower_components/font-awesome/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="/static/bower_components/Ionicons/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/static/dist/css/AdminLTE.min.css">
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!--兼容IE9以下的版本-->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="hold-transition login-page">
+    <div class="login-box">
+        <div class="login-logo">
+            <a href="#"><b>报考注册平台</b></a>
+        </div>
+        <!-- /.login-logo -->
+        <div class="login-box-login">
+            <p class="login-box-msg">Sign in to start your session</p>
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="form-group has-feedback">
+                    <input class="form-control" type="text" name="user" placeholder="用户名">
+                </div>
+                <div class="form-group has-feedback">
+                    <input class="form-control" type="password" name="pwd" placeholder="密码">
+                </div>
+                <div class="row">
+                    <div class="col-xs-8">
+                        <div class="checkbox icheck">
+                           <!-- 预留remember -->
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <input type="submit" class="btn btn-primary btn-block btn-flat">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- jQuery 3 -->
+    <script src="/static/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap 3.3.7 -->
+    <script src="/static/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="/static/dist/js/adminlte.min.js"></script>
+</body>
+</html>

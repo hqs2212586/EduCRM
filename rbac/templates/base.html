@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 以最高的ie浏览器 渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 视口的设备 移动设备优先 支持移动端 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>报考注册平台</title>
+    <!-- 引入 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--兼容IE9以下的版本-->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="/static/css/base.css">
+</head>
+<body>
+    <div class="header">
+        <p>{{ user.name }}</p>
+    </div>
+    <div class="contain">
+        {% load my_tags %}
+        <div class="menu">
+            {% get_menu request %}
+        </div>
+        <div class="content">
+            {% block con %}
+
+            {% endblock %}
+        </div>
+    </div>
+</body>
+</html>
