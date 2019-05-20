@@ -2,8 +2,7 @@
 __author__ = 'Qiushi Huang'
 
 
-from django.shortcuts import render, HttpResponse, redirect
-from crm.models import Customer
+from django.shortcuts import render, redirect, HttpResponseRedirect
 from rbac.models import User
 from rbac.service.permissions import initial_session
 
@@ -18,11 +17,10 @@ def login(request):
         if user:
             # 登录成功
             request.session["user_id"] = user.pk
+            request.session["username"] = user.name
             # 注册权限到session中
             initial_session(user, request)
             return redirect("/stark/crm/customer/mycustomer/")
-            # return  render(request, "mycustomer.html", locals())
-
         else:
             # 用户不存在
             return render(request, "not_found.html")

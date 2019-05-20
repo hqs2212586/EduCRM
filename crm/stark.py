@@ -71,7 +71,7 @@ class CustomerConfig(ModelStark):
     def mycustomer(self, request):
         """我的客户视图"""
         user_id = request.session.get("user_id")
-        print(user_id)
+        username = request.session.get("username")
         my_customer_list = models.Customer.objects.filter(consultant__id=user_id)
         print(my_customer_list)
         return render(request, "mycustomer.html", locals())

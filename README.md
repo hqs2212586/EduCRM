@@ -3,6 +3,7 @@
 基于`python3.6`和`Django2.1`的学生管理系统。
 
 ## 安装
+
 `pip install -Ur requirements.txt`
 
 如果没有pip，使用如下方式安装：    
@@ -29,7 +30,7 @@ windows电脑：
 
 ### 数据库连接
 
- 修改`DjangoBlog/setting.py` 修改数据库配置，如下所示：
+ 修改`EduCRM/setting.py` 修改数据库配置，如下所示：
 
      DATABASES = {
         'default': {
@@ -62,7 +63,7 @@ AttributeError: 'str' object has no attribute 'decode'
 ### 项目运行
 终端下执行:
     
-    python3 manage.py runserver
+    (educrm_env) [huangqs@huas EduCRM]$ python3 manage.py runserver
     (educrm_env) [huangqs@huas EduCRM]$ sudo /etc/init.d/uwsgi stop
         Stopping uwsgi: 
         /usr/bin/uwsgi STOPED.
