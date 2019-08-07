@@ -90,8 +90,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'educrm',          # 要连接的数据库
         'USER': 'root',            # 数据库用户名
-        'PASSWORD': 'Admin123!',   # 数据库密码
-        'HOST': '39.100.75.16',    # 主机
+        'PASSWORD': 'xxxxx',   # 数据库密码
+        'HOST': 'xx.xx.xx.xx',    # 主机
         'POST': 3306               # 端口
     }
 }
